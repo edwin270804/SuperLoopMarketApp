@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD5AC1F0-416D-424E-A288-472EB39043F4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Proyecto_Final_2</RootNamespace>
+    <AssemblyName>Proyecto_Final_2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\..\..\TRABAJO DB\Semana 5\App.banco\Recursos\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Klik.Windows.Forms.EntryLib.V2.2005">
+      <HintPath>..\..\..\TRABAJO DB\Semana 5\App.banco\Recursos\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Libreria\Klik.Windows.Forms.EntryLib.V2.2005.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="Frmconexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmconexion.Designer.cs">
+      <DependentUpon>Frmconexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frmingresar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmingresar.Designer.cs">
+      <DependentUpon>Frmingresar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frminicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frminicio.Designer.cs">
+      <DependentUpon>Frminicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frmlogincs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmlogincs.Designer.cs">
+      <DependentUpon>Frmlogincs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frmpago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmpago.Designer.cs">
+      <DependentUpon>Frmpago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistro.Designer.cs">
+      <DependentUpon>FrmRegistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guna\UI2\WinForms\MessageDialogIcon.cs" />
+    <Compile Include="MDICaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDICaja.Designer.cs">
+      <DependentUpon>MDICaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIdashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIdashboard.Designer.cs">
+      <DependentUpon>MDIdashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIEstadisticas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIEstadisticas.Designer.cs">
+      <DependentUpon>MDIEstadisticas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIGerente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIGerente.Designer.cs">
+      <DependentUpon>MDIGerente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIHistorial.Designer.cs">
+      <DependentUpon>MDIHistorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIProductos.Designer.cs">
+      <DependentUpon>MDIProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDItrabajadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDItrabajadores.Designer.cs">
+      <DependentUpon>MDItrabajadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIVentas+.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIVentas+.Designer.cs">
+      <DependentUpon>MDIVentas+.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIventas2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIventas2.Designer.cs">
+      <DependentUpon>MDIventas2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MostrarConcapa.cs" />
+    <Compile Include="MostrarModal.cs" />
+    <Compile Include="parametrosconexion.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frmconexion.resx">
+      <DependentUpon>Frmconexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frmingresar.resx">
+      <DependentUpon>Frmingresar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frminicio.resx">
+      <DependentUpon>Frminicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frmlogincs.resx">
+      <DependentUpon>Frmlogincs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frmpago.resx">
+      <DependentUpon>Frmpago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistro.resx">
+      <DependentUpon>FrmRegistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDICaja.resx">
+      <DependentUpon>MDICaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIdashboard.resx">
+      <DependentUpon>MDIdashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIEstadisticas.resx">
+      <DependentUpon>MDIEstadisticas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIGerente.resx">
+      <DependentUpon>MDIGerente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIHistorial.resx">
+      <DependentUpon>MDIHistorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIProductos.resx">
+      <DependentUpon>MDIProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDItrabajadores.resx">
+      <DependentUpon>MDItrabajadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIVentas+.resx">
+      <DependentUpon>MDIVentas+.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIventas2.resx">
+      <DependentUpon>MDIventas2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imagen de WhatsApp 2025-09-05 a las 14.29.53_80c8fc26.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imagen de WhatsApp 2025-09-05 a las 11.42.51_c51e0fb3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-de-flecha-izquierda-del-teclado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caja-registradora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imprimir %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar-sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carrito-de-supermercado %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logotipo-de-gmail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\correo-electronico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar-usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contrasena-de-inicio-de-sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carrito-de-compras %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impresora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recibo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compras %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-más-2-matemáticas-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_user_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de pantalla 2025-09-05 143057.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imagen de WhatsApp 2025-09-05 a las 11.38.25_46b497bc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\solicitud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-242.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-243.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carrito-de-compras %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carrito-de-compras %283%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carrito-de-compras %283%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_user_241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_user_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-244.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_salida_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saco-de-dinero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar-sesion %281%29.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
