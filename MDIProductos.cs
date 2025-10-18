@@ -16,7 +16,14 @@ namespace Proyecto_Final_2
 {
     public partial class MDIProductos : Form
     {
-        private int childFormNumber = 0;
+
+        
+        private int paginaActual = 1;
+        private int registrosPorPagina = 10; 
+        private int totalPaginas = 1;
+        private FlowLayoutPanel flpPagina; 
+
+
 
         public MDIProductos()
         {
@@ -26,21 +33,21 @@ namespace Proyecto_Final_2
 
         private void iconcerrar_Click(object sender, EventArgs e)
         {
-            // Buscar el formulario principal MDIGerente
+            
             MDIGerente gerenteForm = Application.OpenForms.OfType<MDIGerente>().FirstOrDefault();
 
             if (gerenteForm != null)
             {
-                // Mostrar el formulario principal si estaba minimizado u oculto
+               
                 gerenteForm.Show();
                 gerenteForm.BringToFront();
 
-                // Cargar el dashboard dentro del panel
+               
                 gerenteForm.AbrirFormularioEnPanel4(new MDIdashboard());
             }
             else
             {
-                // Si no existe, crearlo y cargar el dashboard
+                
                 gerenteForm = new MDIGerente(null);
                 gerenteForm.Show();
                 gerenteForm.AbrirFormularioEnPanel4(new MDIdashboard());
@@ -81,7 +88,7 @@ namespace Proyecto_Final_2
                 dgvproductos.DataSource = null;
                 dgvproductos.DataSource = dtCargarproductos;
 
-                // Estilos generales
+                
                 dgvproductos.DefaultCellStyle.ForeColor = Color.Black;
                 dgvproductos.DefaultCellStyle.BackColor = Color.White;
                 dgvproductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -95,39 +102,153 @@ namespace Proyecto_Final_2
         {
             CargarProductos();
             PersonalizarDataGridView(dgvproductos);
+
+            CalcularTotalPaginas();
+            MostrarPagina();
+            CrearBotonesPaginado();
+        }
+
+        private void CalcularTotalPaginas()
+        {
+            if (dtCargarproductos != null && dtCargarproductos.Rows.Count > 0)
+            {
+                totalPaginas = (int)Math.Ceiling((double)dtCargarproductos.Rows.Count / registrosPorPagina);
+            }
+            else
+            {
+                totalPaginas = 1;
+            }
+        }
+
+        private void MostrarPagina()
+        {
+            if (dtCargarproductos == null) return;
+
+            int inicio = (paginaActual - 1) * registrosPorPagina;
+            int fin = Math.Min(inicio + registrosPorPagina, dtCargarproductos.Rows.Count);
+
+            DataTable dtPagina = dtCargarproductos.Clone();
+
+            for (int i = inicio; i < fin; i++)
+            {
+                dtPagina.ImportRow(dtCargarproductos.Rows[i]);
+            }
+
+            dgvproductos.DataSource = dtPagina;
+        }
+
+        private void CrearBotonesPaginado()
+        {
+            if (flpPagina3 == null)
+            {
+                flpPagina3 = new FlowLayoutPanel();
+                flpPagina3.Size = new Size(300, 40);
+                flpPagina3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                flpPagina3.Location = new Point(this.ClientSize.Width - flpPagina.Width - 20, this.ClientSize.Height - flpPagina.Height - 20);
+                flpPagina3.BackColor = Color.Transparent;
+                this.Controls.Add(flpPagina);
+            }
+
+            flpPagina3.Controls.Clear();
+
+            // Botón Para regresar
+            Button btnAnterior = new Button();
+            btnAnterior.Text = "<";
+            btnAnterior.Width = 40;
+            btnAnterior.Height = 30;
+            btnAnterior.FlatStyle = FlatStyle.Flat;
+            btnAnterior.BackColor = Color.White;
+            btnAnterior.ForeColor = Color.Black;
+            btnAnterior.Enabled = paginaActual > 1;
+            btnAnterior.Click += (s, e) =>
+            {
+                if (paginaActual > 1)
+                {
+                    paginaActual--;
+                    MostrarPagina();
+                    CrearBotonesPaginado();
+                }
+            };
+            flpPagina3.Controls.Add(btnAnterior);
+
+
+            int maxBotones = 3;
+            int inicio = Math.Max(1, paginaActual - 1);
+            int fin = Math.Min(totalPaginas, inicio + maxBotones - 1);
+
+            for (int i = inicio; i <= fin; i++)
+            {
+                Button btn = new Button();
+                btn.Text = i.ToString();
+                btn.Width = 40;
+                btn.Height = 30;
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.ForeColor = Color.Black;
+                btn.BackColor = (i == paginaActual) ? Color.LightBlue : Color.White;
+
+                int pagina = i;
+                btn.Click += (s, e) =>
+                {
+                    paginaActual = pagina;
+                    MostrarPagina();
+                    CrearBotonesPaginado();
+                };
+
+                flpPagina3.Controls.Add(btn);
+            }
+
+
+            Button btnSiguiente = new Button();
+            btnSiguiente.Text = ">";
+            btnSiguiente.Width = 40;
+            btnSiguiente.Height = 30;
+            btnSiguiente.FlatStyle = FlatStyle.Flat;
+            btnSiguiente.BackColor = Color.White;
+            btnSiguiente.ForeColor = Color.Black;
+            btnSiguiente.Enabled = paginaActual < totalPaginas;
+            btnSiguiente.Click += (s, e) =>
+            {
+                if (paginaActual < totalPaginas)
+                {
+                    paginaActual++;
+                    MostrarPagina();
+                    CrearBotonesPaginado();
+                }
+            };
+            flpPagina3.Controls.Add(btnSiguiente);
         }
 
         private void PersonalizarDataGridView(DataGridView dgv)
         {
-            // 🔹 Estilo general
+            
             dgv.BorderStyle = BorderStyle.None;
             dgv.BackgroundColor = Color.White;
             dgv.GridColor = Color.LightGray;
 
-            // 🔹 Encabezados
+            
             dgv.EnableHeadersVisualStyles = false;
-            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 122, 204); // Azul moderno
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 122, 204); 
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // ✅ Centrado
+            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; 
             dgv.ColumnHeadersHeight = 38;
 
-            // 🔹 Filas
+            
             dgv.DefaultCellStyle.BackColor = Color.White;
             dgv.DefaultCellStyle.ForeColor = Color.Black;
             dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(230, 240, 255);
             dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
             dgv.DefaultCellStyle.Font = new Font("Segoe UI", 9);
-            dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Centra el texto
+            dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; 
 
-            // 🔹 Filas alternadas (efecto zebra)
+          
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 248, 255);
 
-            // 🔹 Bordes y selección
+           
             dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv.RowTemplate.Height = 32;
 
-            // 🔹 Ajuste automático de columnas
+            
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv.MultiSelect = false;

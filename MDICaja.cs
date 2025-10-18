@@ -16,6 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Proyecto_Final_2.Frmlogincs;
+using Font = System.Drawing.Font;
 
 namespace Proyecto_Final_2
 {
@@ -175,6 +176,10 @@ namespace Proyecto_Final_2
             return null;
         }
 
+
+        
+
+
         public void ActualizarTotales()
         {
             decimal subtotal = 0;
@@ -186,11 +191,16 @@ namespace Proyecto_Final_2
             decimal iva = subtotal * ivaPorcentaje;
             decimal total = subtotal + iva;
 
-            CultureInfo nicaragua = new CultureInfo("es-NI");
+            CultureInfo nicaragua = new CultureInfo("es-NI"); 
 
-            lblsubtotal.Text = $"Subtotal: {subtotal.ToString("C", nicaragua)}";
-            lbliva.Text = $"IVA (15%): {iva.ToString("C", nicaragua)}";
+            lblsubtotal.Text = $"Subtotal: {subtotal.ToString("C", nicaragua)}"; 
+            lbliva.Text = $"IVA (15%): {iva.ToString("C", nicaragua)}"; 
             lbltotal.Text = $"Total: {total.ToString("C", nicaragua)}";
+
+            
+
+
+
 
 
         }
@@ -248,7 +258,7 @@ namespace Proyecto_Final_2
                 decimal cambio = frmPago.Cambio;
 
                 CultureInfo nicaragua = new CultureInfo("es-NI");
-                lblvuelto.Text = $"Vuelto: {cambio.ToString("C", nicaragua)}";
+                lblvuelto.Text = $"Cambio: {cambio.ToString("C", nicaragua)}";
                 txtRecibido.Text = recibido.ToString();
 
                 // Guardar últimos valores para factura manual
@@ -500,9 +510,11 @@ namespace Proyecto_Final_2
                 });
             }
 
-            CultureInfo nicaragua = new CultureInfo("es-NI");
-            lblvuelto.Text = $"Vuelto: {0m.ToString("C", nicaragua)}";
-            
+            CultureInfo nicaragua = new CultureInfo("es-NI"); 
+            lblvuelto.Text = $"Cambio: {0m.ToString("C", nicaragua)}";
+
+
+
         }
 
         private void txtRecibido_TextChanged(object sender, EventArgs e)
@@ -631,7 +643,7 @@ namespace Proyecto_Final_2
             // Encabezados
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 122, 204);
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgv.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10, FontStyle.Bold);
+            dgv.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 14, FontStyle.Bold);
             dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // 🔹 Centra encabezados
             dgv.ColumnHeadersHeight = 35;
             dgv.EnableHeadersVisualStyles = false;
@@ -641,7 +653,7 @@ namespace Proyecto_Final_2
             dgv.DefaultCellStyle.ForeColor = Color.Black;
             dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(230, 240, 255);
             dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dgv.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9);
+            dgv.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 14);
             dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // 🔹 Centra contenido
 
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 248, 255);

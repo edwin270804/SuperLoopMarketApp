@@ -1,4 +1,7 @@
-﻿namespace Proyecto_Final_2
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace Proyecto_Final_2
 {
     partial class MDIHistorial
     {
@@ -33,6 +36,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.flpPagina = new System.Windows.Forms.FlowLayoutPanel();
             this.iconcerrar = new FontAwesome.Sharp.IconButton();
             this.dgvHistorial = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -70,6 +74,7 @@
             this.guna2GroupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.White;
             this.guna2GroupBox1.BorderRadius = 8;
+            this.guna2GroupBox1.Controls.Add(this.flpPagina);
             this.guna2GroupBox1.Controls.Add(this.iconcerrar);
             this.guna2GroupBox1.Controls.Add(this.dgvHistorial);
             this.guna2GroupBox1.Controls.Add(this.label1);
@@ -81,6 +86,17 @@
             this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
             this.guna2GroupBox1.Size = new System.Drawing.Size(1071, 539);
             this.guna2GroupBox1.TabIndex = 0;
+            // 
+            // flpPagina
+            // 
+            this.flpPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.flpPagina.AutoSize = true;
+            this.flpPagina.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpPagina.Location = new System.Drawing.Point(1035, 125);
+            this.flpPagina.Name = "flpPagina";
+            this.flpPagina.Size = new System.Drawing.Size(0, 0);
+            this.flpPagina.TabIndex = 6;
+            this.flpPagina.WrapContents = false;
             // 
             // iconcerrar
             // 
@@ -114,13 +130,13 @@
             this.dgvHistorial.BackgroundColor = System.Drawing.Color.White;
             this.dgvHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHistorial.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvHistorial.Location = new System.Drawing.Point(6, 78);
+            this.dgvHistorial.Location = new System.Drawing.Point(19, 93);
             this.dgvHistorial.Name = "dgvHistorial";
             this.dgvHistorial.ReadOnly = true;
             this.dgvHistorial.RowHeadersVisible = false;
             this.dgvHistorial.RowHeadersWidth = 51;
             this.dgvHistorial.RowTemplate.Height = 24;
-            this.dgvHistorial.Size = new System.Drawing.Size(1045, 458);
+            this.dgvHistorial.Size = new System.Drawing.Size(1010, 418);
             this.dgvHistorial.TabIndex = 3;
             // 
             // label1
@@ -162,6 +178,7 @@
         private FontAwesome.Sharp.IconButton iconcerrar;
         private System.Windows.Forms.DataGridView dgvHistorial;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flpPagina;
     }
 }
 

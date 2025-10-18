@@ -187,6 +187,8 @@ namespace Proyecto_Final_2
 
         private void Frmlogincs_Load_1(object sender, EventArgs e)
         {
+
+            txtcorreo.Focus();
             txtcorreo.KeyDown += txtcorreo_KeyDown;
             txtcodigo.KeyDown += txtcodigo_KeyDown;
             this.ActiveControl = label1;
@@ -203,6 +205,11 @@ namespace Proyecto_Final_2
 
             txtcodigo.Enter += txtcodigo_Enter;
             txtcodigo.Leave += txtcodigo_Leave;
+
+            this.DoubleBuffered = true;
+
+            
+
         }
 
         private void iconcerrar_Click(object sender, EventArgs e)

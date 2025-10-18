@@ -200,10 +200,10 @@
             // 
             this.lblsubtotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblsubtotal.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsubtotal.Location = new System.Drawing.Point(14, 21);
+            this.lblsubtotal.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsubtotal.Location = new System.Drawing.Point(15, 32);
             this.lblsubtotal.Name = "lblsubtotal";
-            this.lblsubtotal.Size = new System.Drawing.Size(370, 31);
+            this.lblsubtotal.Size = new System.Drawing.Size(762, 47);
             this.lblsubtotal.TabIndex = 5;
             this.lblsubtotal.Text = "Subtotal:";
             // 
@@ -211,10 +211,10 @@
             // 
             this.lbliva.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbliva.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbliva.Location = new System.Drawing.Point(14, 81);
+            this.lbliva.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbliva.Location = new System.Drawing.Point(15, 94);
             this.lbliva.Name = "lbliva";
-            this.lbliva.Size = new System.Drawing.Size(370, 31);
+            this.lbliva.Size = new System.Drawing.Size(762, 49);
             this.lbliva.TabIndex = 6;
             this.lbliva.Text = "IVA (15%):";
             // 
@@ -222,10 +222,11 @@
             // 
             this.lbltotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbltotal.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotal.Location = new System.Drawing.Point(14, 136);
+            this.lbltotal.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotal.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lbltotal.Location = new System.Drawing.Point(15, 152);
             this.lbltotal.Name = "lbltotal";
-            this.lbltotal.Size = new System.Drawing.Size(370, 31);
+            this.lbltotal.Size = new System.Drawing.Size(762, 66);
             this.lbltotal.TabIndex = 7;
             this.lbltotal.Text = "Total:";
             // 
@@ -233,10 +234,11 @@
             // 
             this.lblvuelto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblvuelto.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblvuelto.Location = new System.Drawing.Point(14, 185);
+            this.lblvuelto.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblvuelto.ForeColor = System.Drawing.Color.Red;
+            this.lblvuelto.Location = new System.Drawing.Point(16, 228);
             this.lblvuelto.Name = "lblvuelto";
-            this.lblvuelto.Size = new System.Drawing.Size(350, 148);
+            this.lblvuelto.Size = new System.Drawing.Size(761, 87);
             this.lblvuelto.TabIndex = 9;
             this.lblvuelto.Text = "Cambio:";
             // 

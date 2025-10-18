@@ -20,9 +20,11 @@ namespace Proyecto_Final_2
 
         private void Frmingresar_Load(object sender, EventArgs e)
         {
-           // EstiloBoton(btninicio, Color.FromArgb(30, 144, 255)); // Azul
-            EstiloBoton(btninicio, Color.MediumSeaGreen);       // Verde
-           // EstiloBoton(btninicio, Color.DarkOrange);
+          
+            EstiloBoton(btninicio, Color.MediumSeaGreen);
+            this.DoubleBuffered = true;
+
+
 
 
         }
@@ -41,10 +43,10 @@ namespace Proyecto_Final_2
             btninicio.ShadowDecoration.Depth = 8;
             btninicio.ShadowDecoration.Color = Color.Gray;
 
-            btn.Image = Properties.Resources.icon_user_24; // Reemplaza "LoginIcon" por el nombre de tu recurso de imagen
+            btn.Image = Properties.Resources.icon_user_24; 
             btn.ImageAlign = HorizontalAlignment.Left;
-            btn.ImageSize = new Size(24, 24); // Ajusta el tamaño del ícono según necesites
-            btn.TextAlign = HorizontalAlignment.Center; // Mantener el texto centrado
+            btn.ImageSize = new Size(24, 24); 
+            btn.TextAlign = HorizontalAlignment.Center;
         }
 
         private void btninicio_Click(object sender, EventArgs e)
@@ -62,6 +64,53 @@ namespace Proyecto_Final_2
             this.Close();
         }
 
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+            
+        }
 
+        private void progressBar1_Click_1(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void guna2ProgressBar1_ValueChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void progressBar1_Click_2(object sender, EventArgs e)
+        {
+      
+        }
+
+        private void Frmingresar_Shown(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Frmingresar_Activated(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            panel2.Width += 6;
+
+            if (panel2.Width >= 768)
+            {
+                timer2.Stop();
+
+                
+                Frmlogincs logincs = new Frmlogincs();
+                logincs.Show();
+                this.Hide();
+                
+            }
+
+
+        }
     }
 }

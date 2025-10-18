@@ -34,24 +34,28 @@
             this.btninicio = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.iconcerrar = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(235, 26);
+            this.label1.Location = new System.Drawing.Point(222, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(297, 55);
+            this.label1.Size = new System.Drawing.Size(310, 55);
             this.label1.TabIndex = 1;
             this.label1.Text = "   Supermercado";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Proyecto_Final_2.Properties.Resources.Imagen_de_WhatsApp_2025_09_05_a_las_11_42_51_c51e0fb3;
-            this.pictureBox1.Location = new System.Drawing.Point(260, 94);
+            this.pictureBox1.Location = new System.Drawing.Point(222, 84);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(238, 127);
+            this.pictureBox1.Size = new System.Drawing.Size(310, 214);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -66,12 +70,13 @@
             this.btninicio.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btninicio.ForeColor = System.Drawing.Color.Black;
             this.btninicio.HoverState.Parent = this.btninicio;
-            this.btninicio.Location = new System.Drawing.Point(226, 256);
+            this.btninicio.Location = new System.Drawing.Point(12, 12);
             this.btninicio.Name = "btninicio";
             this.btninicio.ShadowDecoration.Parent = this.btninicio;
-            this.btninicio.Size = new System.Drawing.Size(331, 57);
+            this.btninicio.Size = new System.Drawing.Size(10, 57);
             this.btninicio.TabIndex = 7;
             this.btninicio.Text = "Iniciar Sesion";
+            this.btninicio.Visible = false;
             this.btninicio.Click += new System.EventHandler(this.btninicio_Click);
             // 
             // guna2Elipse1
@@ -98,12 +103,36 @@
             this.iconcerrar.UseVisualStyleBackColor = false;
             this.iconcerrar.Click += new System.EventHandler(this.iconcerrar_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 354);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(768, 39);
+            this.panel1.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Lime;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(52, 39);
+            this.panel2.TabIndex = 10;
+            // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 20;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // Frmingresar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(768, 393);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.iconcerrar);
             this.Controls.Add(this.btninicio);
             this.Controls.Add(this.pictureBox1);
@@ -112,8 +141,11 @@
             this.Name = "Frmingresar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frmingresar";
+            this.Activated += new System.EventHandler(this.Frmingresar_Activated);
             this.Load += new System.EventHandler(this.Frmingresar_Load);
+            this.Shown += new System.EventHandler(this.Frmingresar_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -125,5 +157,8 @@
         private Guna.UI2.WinForms.Guna2Button btninicio;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private FontAwesome.Sharp.IconButton iconcerrar;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Timer timer2;
     }
 }

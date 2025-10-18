@@ -1,4 +1,6 @@
-﻿namespace Proyecto_Final_2
+﻿using System.Windows.Forms;
+
+namespace Proyecto_Final_2
 {
     partial class MDItrabajadores
     {
@@ -33,6 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.flpPaginacion = new System.Windows.Forms.FlowLayoutPanel();
             this.iconregistrar = new Guna.UI2.WinForms.Guna2Button();
             this.iconcerrar = new FontAwesome.Sharp.IconButton();
             this.dgvtrabajadores = new System.Windows.Forms.DataGridView();
@@ -73,6 +76,7 @@
             this.guna2GroupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.White;
             this.guna2GroupBox1.BorderRadius = 8;
+            this.guna2GroupBox1.Controls.Add(this.flpPaginacion);
             this.guna2GroupBox1.Controls.Add(this.iconregistrar);
             this.guna2GroupBox1.Controls.Add(this.iconcerrar);
             this.guna2GroupBox1.Controls.Add(this.dgvtrabajadores);
@@ -86,6 +90,17 @@
             this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
             this.guna2GroupBox1.Size = new System.Drawing.Size(1071, 539);
             this.guna2GroupBox1.TabIndex = 0;
+            // 
+            // flpPaginacion
+            // 
+            this.flpPaginacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.flpPaginacion.AutoSize = true;
+            this.flpPaginacion.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpPaginacion.Location = new System.Drawing.Point(1035, 180);
+            this.flpPaginacion.Name = "flpPaginacion";
+            this.flpPaginacion.Size = new System.Drawing.Size(0, 0);
+            this.flpPaginacion.TabIndex = 7;
+            this.flpPaginacion.WrapContents = false;
             // 
             // iconregistrar
             // 
@@ -136,12 +151,12 @@
             this.dgvtrabajadores.BackgroundColor = System.Drawing.Color.White;
             this.dgvtrabajadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvtrabajadores.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvtrabajadores.Location = new System.Drawing.Point(6, 165);
+            this.dgvtrabajadores.Location = new System.Drawing.Point(24, 165);
             this.dgvtrabajadores.Name = "dgvtrabajadores";
             this.dgvtrabajadores.RowHeadersVisible = false;
             this.dgvtrabajadores.RowHeadersWidth = 51;
             this.dgvtrabajadores.RowTemplate.Height = 24;
-            this.dgvtrabajadores.Size = new System.Drawing.Size(1045, 371);
+            this.dgvtrabajadores.Size = new System.Drawing.Size(999, 329);
             this.dgvtrabajadores.TabIndex = 3;
             // 
             // label1
@@ -215,6 +230,7 @@
         private FontAwesome.Sharp.IconButton iconcerrar;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private Guna.UI2.WinForms.Guna2Button iconregistrar;
+        private System.Windows.Forms.FlowLayoutPanel flpPaginacion;
     }
 }
 

@@ -33,6 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.flpPagina2 = new System.Windows.Forms.FlowLayoutPanel();
             this.iconcerrar = new FontAwesome.Sharp.IconButton();
             this.dgvVentas = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -70,6 +71,7 @@
             this.guna2GroupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.White;
             this.guna2GroupBox1.BorderRadius = 8;
+            this.guna2GroupBox1.Controls.Add(this.flpPagina2);
             this.guna2GroupBox1.Controls.Add(this.iconcerrar);
             this.guna2GroupBox1.Controls.Add(this.dgvVentas);
             this.guna2GroupBox1.Controls.Add(this.label1);
@@ -81,6 +83,17 @@
             this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
             this.guna2GroupBox1.Size = new System.Drawing.Size(1071, 539);
             this.guna2GroupBox1.TabIndex = 0;
+            // 
+            // flpPagina2
+            // 
+            this.flpPagina2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.flpPagina2.AutoSize = true;
+            this.flpPagina2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpPagina2.Location = new System.Drawing.Point(1035, 125);
+            this.flpPagina2.Name = "flpPagina2";
+            this.flpPagina2.Size = new System.Drawing.Size(0, 0);
+            this.flpPagina2.TabIndex = 6;
+            this.flpPagina2.WrapContents = false;
             // 
             // iconcerrar
             // 
@@ -114,13 +127,13 @@
             this.dgvVentas.BackgroundColor = System.Drawing.Color.White;
             this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVentas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvVentas.Location = new System.Drawing.Point(6, 85);
+            this.dgvVentas.Location = new System.Drawing.Point(24, 85);
             this.dgvVentas.Name = "dgvVentas";
             this.dgvVentas.ReadOnly = true;
             this.dgvVentas.RowHeadersVisible = false;
             this.dgvVentas.RowHeadersWidth = 51;
             this.dgvVentas.RowTemplate.Height = 24;
-            this.dgvVentas.Size = new System.Drawing.Size(1045, 440);
+            this.dgvVentas.Size = new System.Drawing.Size(1015, 386);
             this.dgvVentas.TabIndex = 3;
             // 
             // label1
@@ -139,7 +152,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1171, 585);
+            this.flpPagina2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1480, 585);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -162,6 +176,7 @@
         private FontAwesome.Sharp.IconButton iconcerrar;
         private System.Windows.Forms.DataGridView dgvVentas;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flpPagina2;
     }
 }
 

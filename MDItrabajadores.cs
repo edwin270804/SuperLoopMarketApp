@@ -16,19 +16,26 @@ namespace Proyecto_Final_2
     public partial class MDItrabajadores : Form
     {
 
+        private int registrosPorPagina = 10;      
+        private int paginaActual = 1;            
+        private int totalPaginas = 0;             
+        private DataTable dtTrabajadoresCompleto;
+
 
         public MDItrabajadores()
         {
             InitializeComponent();
 
             this.IsMdiContainer = false;
+
+
         }
 
 
 
         private void trabajadores()
         {
-            
+
             parametrosconexion parametros = AdministrarConexion.cargar();
             if (string.IsNullOrWhiteSpace(parametros.servidor) || string.IsNullOrWhiteSpace(parametros.baseDatos))
             {
@@ -41,24 +48,150 @@ namespace Proyecto_Final_2
             {
                 conn.Open();
                 string query = @"SELECT Idtrabajor, Nombre, Correo, Rol FROM Trabajadores;";
-
                 SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                dtTrabajadores = new DataTable();
-                da.Fill(dtTrabajadores);
+                dtTrabajadoresCompleto = new DataTable();
+                da.Fill(dtTrabajadoresCompleto);
+            }
 
-                dgvtrabajadores.DataSource = null;
-                dgvtrabajadores.DataSource = dtTrabajadores;
+            // Inicializar paginado
+            paginaActual = 1;
+            totalPaginas = (int)Math.Ceiling((double)dtTrabajadoresCompleto.Rows.Count / registrosPorPagina);
 
-                dgvtrabajadores.DefaultCellStyle.ForeColor = Color.Black;
+            
+            MostrarPagina();
+            CrearBotonesPaginado();
+
+            
+
+            dgvtrabajadores.DefaultCellStyle.ForeColor = Color.Black;
                 dgvtrabajadores.DefaultCellStyle.BackColor = Color.White;
                 dgvtrabajadores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvtrabajadores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-                dgvtrabajadores.Columns["Idtrabajor"].Visible = false;
-                dgvtrabajadores.Columns["Nombre"].ReadOnly = false;
-                dgvtrabajadores.Columns["Correo"].ReadOnly = false;
-                dgvtrabajadores.Columns["Rol"].ReadOnly = false;
+              ;
+        }
+
+        
+
+        private void MostrarPagina()
+        {
+            if (dtTrabajadoresCompleto.Rows.Count == 0)
+            {
+                dgvtrabajadores.DataSource = null;
+                return;
             }
+
+            int inicio = (paginaActual - 1) * registrosPorPagina;
+            var rows = dtTrabajadoresCompleto.AsEnumerable().Skip(inicio).Take(registrosPorPagina);
+
+            dgvtrabajadores.DataSource = rows.Any() ? rows.CopyToDataTable() : null;
+
+            // Ocultar columna Id
+            if (dgvtrabajadores.Columns.Contains("Idtrabajor"))
+                dgvtrabajadores.Columns["Idtrabajor"].Visible = false;
+
+            PersonalizarDataGridView(dgvtrabajadores);
+
+            dgvtrabajadores.DataSource = rows.Any() ? rows.CopyToDataTable() : null;
+
+            if (dgvtrabajadores.DataSource != null)
+            {
+                if (dgvtrabajadores.Columns.Contains("Idtrabajor"))
+                    dgvtrabajadores.Columns["Idtrabajor"].Visible = false;
+
+                if (dgvtrabajadores.Columns.Contains("Nombre"))
+                    dgvtrabajadores.Columns["Nombre"].ReadOnly = false;
+
+                if (dgvtrabajadores.Columns.Contains("Correo"))
+                    dgvtrabajadores.Columns["Correo"].ReadOnly = false;
+
+                if (dgvtrabajadores.Columns.Contains("Rol"))
+                    dgvtrabajadores.Columns["Rol"].ReadOnly = false;
+            }
+
+        }
+
+        private void CrearBotonesPaginado()
+        {
+            if (flpPaginacion == null)
+            {
+                flpPaginacion = new FlowLayoutPanel();
+                flpPaginacion.Size = new Size(300, 40);
+                flpPaginacion.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                flpPaginacion.Location = new Point(this.ClientSize.Width - flpPaginacion.Width - 20, this.ClientSize.Height - flpPaginacion.Height - 20);
+                flpPaginacion.BackColor = Color.Transparent;
+                this.Controls.Add(flpPaginacion);
+            }
+
+            flpPaginacion.Controls.Clear();
+
+            // Botón Para regresar
+            Button btnAnterior = new Button();
+            btnAnterior.Text = "<";
+            btnAnterior.Width = 40;
+            btnAnterior.Height = 30;
+            btnAnterior.FlatStyle = FlatStyle.Flat;
+            btnAnterior.BackColor = Color.White;
+            btnAnterior.ForeColor = Color.Black;
+            btnAnterior.Enabled = paginaActual > 1;
+            btnAnterior.Click += (s, e) =>
+            {
+                if (paginaActual > 1)
+                {
+                    paginaActual--;
+                    MostrarPagina();
+                    CrearBotonesPaginado();
+                }
+            };
+            flpPaginacion.Controls.Add(btnAnterior);
+
+
+            int maxBotones = 3;
+            int inicio = Math.Max(1, paginaActual - 1);
+            int fin = Math.Min(totalPaginas, inicio + maxBotones - 1);
+
+            for (int i = inicio; i <= fin; i++)
+            {
+                Button btn = new Button();
+                btn.Text = i.ToString();
+                btn.Width = 40;
+                btn.Height = 30;
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.ForeColor = Color.Black;
+                btn.BackColor = (i == paginaActual) ? Color.LightBlue : Color.White;
+
+                int pagina = i;
+                btn.Click += (s, e) =>
+                {
+                    paginaActual = pagina;
+                    MostrarPagina();
+                    CrearBotonesPaginado();
+                };
+
+                flpPaginacion.Controls.Add(btn);
+            }
+
+
+            Button btnSiguiente = new Button();
+            btnSiguiente.Text = ">";
+            btnSiguiente.Width = 40;
+            btnSiguiente.Height = 30;
+            btnSiguiente.FlatStyle = FlatStyle.Flat;
+            btnSiguiente.BackColor = Color.White;
+            btnSiguiente.ForeColor = Color.Black;
+            btnSiguiente.Enabled = paginaActual < totalPaginas;
+            btnSiguiente.Click += (s, e) =>
+            {
+                if (paginaActual < totalPaginas)
+                {
+                    paginaActual++;
+                    MostrarPagina();
+                    CrearBotonesPaginado();
+                }
+            };
+            flpPaginacion.Controls.Add(btnSiguiente);
+
+
 
         }
 

@@ -36,6 +36,7 @@
             this.iconcerrar = new FontAwesome.Sharp.IconButton();
             this.dgvproductos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.flpPagina3 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
@@ -70,6 +71,7 @@
             this.guna2GroupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.White;
             this.guna2GroupBox1.BorderRadius = 8;
+            this.guna2GroupBox1.Controls.Add(this.flpPagina3);
             this.guna2GroupBox1.Controls.Add(this.iconcerrar);
             this.guna2GroupBox1.Controls.Add(this.dgvproductos);
             this.guna2GroupBox1.Controls.Add(this.label1);
@@ -114,13 +116,13 @@
             this.dgvproductos.BackgroundColor = System.Drawing.Color.White;
             this.dgvproductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvproductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvproductos.Location = new System.Drawing.Point(0, 85);
+            this.dgvproductos.Location = new System.Drawing.Point(25, 85);
             this.dgvproductos.Name = "dgvproductos";
             this.dgvproductos.ReadOnly = true;
             this.dgvproductos.RowHeadersVisible = false;
             this.dgvproductos.RowHeadersWidth = 51;
             this.dgvproductos.RowTemplate.Height = 24;
-            this.dgvproductos.Size = new System.Drawing.Size(1045, 439);
+            this.dgvproductos.Size = new System.Drawing.Size(1005, 387);
             this.dgvproductos.TabIndex = 3;
             // 
             // label1
@@ -134,6 +136,17 @@
             this.label1.Size = new System.Drawing.Size(296, 45);
             this.label1.TabIndex = 2;
             this.label1.Text = "Lista de Productos";
+            // 
+            // flpPagina3
+            // 
+            this.flpPagina3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.flpPagina3.AutoSize = true;
+            this.flpPagina3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpPagina3.Location = new System.Drawing.Point(1035, 125);
+            this.flpPagina3.Name = "flpPagina3";
+            this.flpPagina3.Size = new System.Drawing.Size(0, 0);
+            this.flpPagina3.TabIndex = 6;
+            this.flpPagina3.WrapContents = false;
             // 
             // MDIProductos
             // 
@@ -162,6 +175,7 @@
         private FontAwesome.Sharp.IconButton iconcerrar;
         private System.Windows.Forms.DataGridView dgvproductos;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flpPagina3;
     }
 }
 
