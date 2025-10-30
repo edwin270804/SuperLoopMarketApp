@@ -318,6 +318,11 @@ namespace Proyecto_Final_2
         {
             this.Close();
         }
+
+        private void cbxpuesto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

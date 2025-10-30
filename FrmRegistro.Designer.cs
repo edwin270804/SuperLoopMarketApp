@@ -34,13 +34,12 @@
             this.btnregistrar = new System.Windows.Forms.Button();
             this.btninicio = new System.Windows.Forms.Button();
             this.lblcodigo = new System.Windows.Forms.Label();
-            this.cbxpuesto = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtcorreo = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.btncerrar = new FontAwesome.Sharp.IconButton();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cbxpuesto = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -116,16 +115,6 @@
             this.lblcodigo.TabIndex = 8;
             this.lblcodigo.Text = "Codigo del Trabajador:";
             // 
-            // cbxpuesto
-            // 
-            this.cbxpuesto.BackColor = System.Drawing.Color.White;
-            this.cbxpuesto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxpuesto.FormattingEnabled = true;
-            this.cbxpuesto.Location = new System.Drawing.Point(226, 342);
-            this.cbxpuesto.Name = "cbxpuesto";
-            this.cbxpuesto.Size = new System.Drawing.Size(354, 28);
-            this.cbxpuesto.TabIndex = 10;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -198,27 +187,25 @@
             this.btncerrar.UseVisualStyleBackColor = true;
             this.btncerrar.Click += new System.EventHandler(this.btncerrar_Click);
             // 
-            // guna2ComboBox1
+            // cbxpuesto
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.Empty;
-            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.FormattingEnabled = true;
-            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
-            "Cajero",
-            "Gerente"});
-            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(618, 333);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Size = new System.Drawing.Size(140, 36);
-            this.guna2ComboBox1.TabIndex = 12;
+            this.cbxpuesto.BackColor = System.Drawing.Color.Transparent;
+            this.cbxpuesto.BorderRadius = 10;
+            this.cbxpuesto.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbxpuesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxpuesto.FocusedColor = System.Drawing.Color.Empty;
+            this.cbxpuesto.FocusedState.Parent = this.cbxpuesto;
+            this.cbxpuesto.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbxpuesto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbxpuesto.FormattingEnabled = true;
+            this.cbxpuesto.HoverState.Parent = this.cbxpuesto;
+            this.cbxpuesto.ItemHeight = 30;
+            this.cbxpuesto.ItemsAppearance.Parent = this.cbxpuesto;
+            this.cbxpuesto.Location = new System.Drawing.Point(226, 339);
+            this.cbxpuesto.Name = "cbxpuesto";
+            this.cbxpuesto.ShadowDecoration.Parent = this.cbxpuesto;
+            this.cbxpuesto.Size = new System.Drawing.Size(354, 36);
+            this.cbxpuesto.TabIndex = 12;
             // 
             // FrmRegistro
             // 
@@ -226,9 +213,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(780, 472);
-            this.Controls.Add(this.guna2ComboBox1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.cbxpuesto);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblcodigo);
             this.Controls.Add(this.btninicio);
             this.Controls.Add(this.btnregistrar);
@@ -254,11 +240,10 @@
         private System.Windows.Forms.Button btnregistrar;
         private System.Windows.Forms.Button btninicio;
         private System.Windows.Forms.Label lblcodigo;
-        private System.Windows.Forms.ComboBox cbxpuesto;
         private Guna.UI2.WinForms.Guna2TextBox txtcorreo;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton btncerrar;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox cbxpuesto;
     }
 }

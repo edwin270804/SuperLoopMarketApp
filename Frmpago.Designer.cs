@@ -190,6 +190,7 @@
             this.btncobrar.TabIndex = 12;
             this.btncobrar.Text = "Cobrar";
             this.btncobrar.Click += new System.EventHandler(this.btncobrar_Click_1);
+            this.btncobrar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btncobrar_KeyDown);
             // 
             // txtTotalAPagar
             // 
@@ -288,6 +289,7 @@
             this.Name = "Frmpago";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frmpago";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frmpago_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

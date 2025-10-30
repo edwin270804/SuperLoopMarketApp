@@ -35,6 +35,12 @@ namespace Proyecto_Final_2
             btnCerrar.Click += btnCerrar_Click;
             chkEfectivo.CheckedChanged += chkEfectivo_CheckedChanged;
             chkTarjeta.CheckedChanged += chkTarjeta_CheckedChanged;
+
+            this.KeyPreview = true;
+            this.KeyDown += Frmpago_KeyDown;
+
+            this.KeyPreview = true;
+            this.KeyDown += Frmpago_KeyDown;
         }
 
         private void Frmpago_Load(object sender, EventArgs e)
@@ -122,6 +128,32 @@ namespace Proyecto_Final_2
             Pagado = true;
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void btncobrar_KeyDown(object sender, KeyEventArgs e)
+        {
+           
+        }
+
+        private void Frmpago_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.C)
+            {
+                btncobrar.PerformClick();
+                e.Handled = true;
+            }
+
+
+            else if (e.KeyCode == Keys.E)
+            {
+                chkEfectivo.Checked = !chkEfectivo.Checked; 
+                e.Handled = true;
+            }
+            else if (e.KeyCode == Keys.T)
+            {
+                chkTarjeta.Checked = !chkTarjeta.Checked; 
+                e.Handled = true;
+            }
         }
     }
 }
